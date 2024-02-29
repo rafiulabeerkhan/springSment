@@ -28,7 +28,7 @@ public Employees getEmployeeById(@PathVariable("id")Long id){
     return service.getEmployeesById(id);
 }
 
-@PutMapping("/")
+@PutMapping("/{id}")
 public Employees updateEmployees(@RequestBody Employees employees){
     return service.saveEmployees(employees);
 }
