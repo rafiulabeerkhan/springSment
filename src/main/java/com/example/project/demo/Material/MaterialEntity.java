@@ -1,21 +1,20 @@
-package com.example.project.demo.products;
+package com.example.project.demo.Material;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProductEntity {
+@NoArgsConstructor
+public class MaterialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long product_id;
-    private String productName;
     private Long material_id;
-    private String material_name;
-    private String workOrder;
-    private Integer weight;
+    private String name;
+    private String country;
+    private Long price;
 }

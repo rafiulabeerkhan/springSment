@@ -1,11 +1,11 @@
-package com.example.project.demo.Client;
+package com.example.project.demo.Material;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClientRepository extends JpaRepository<ClientEntity, Long> {
+public interface MaterialRepository extends JpaRepository<MaterialEntity, Long> {
 
 
 }

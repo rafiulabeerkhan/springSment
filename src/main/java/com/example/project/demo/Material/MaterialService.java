@@ -8,17 +8,17 @@ import java.util.List;
 @Service
 public class MaterialService {
     @Autowired
-    public Repository repo;
+    public MaterialRepository repo;
 
-    public List<Material> getAllMaterial() {
+    public List<MaterialEntity> getAllMaterial() {
         return repo.findAll();
     }
 
-    public Material getMaterialById(Long id) {
+    public MaterialEntity getMaterialById(Long id) {
         return repo.findById(id).orElse(null);
     }
 
-    public Material saveMaterial(Material material) {
+    public MaterialEntity saveMaterial(MaterialEntity material) {
         return this.repo.save(material);
     }
 

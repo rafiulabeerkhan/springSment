@@ -1,4 +1,4 @@
-package com.example.project.demo.products;
+package com.example.project.demo.EmployeeAttendance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,23 +6,23 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class productService {
+public class AttendanceService {
     @Autowired
-    public ProductRepository repo;
+    public AttendanceRepository repo;
 
-    public List<ProductEntity> getAllProducts() {
+    public List<AttendanceEntity> getAttendance() {
         return repo.findAll();
     }
 
-    public ProductEntity getProductById(Long id) {
+    public AttendanceEntity getAttendanceById(Long id) {
         return repo.findById(id).orElse(null);
     }
 
-    public ProductEntity saveProduct(ProductEntity product) {
-        return this.repo.save(product);
+    public AttendanceEntity saveAttendance(AttendanceEntity attendance) {
+        return this.repo.save(attendance);
     }
 
-    public Boolean deleteProduct(Long id) {
+    public Boolean deleteAttendance(Long id) {
         if (repo.findById(id).isPresent()) {
             repo.deleteById(id);
             return true;
