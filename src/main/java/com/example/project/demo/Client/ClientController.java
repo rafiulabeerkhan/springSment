@@ -14,7 +14,7 @@ public class ClientController {
     public ClientService service;
 
     @GetMapping("/getAll")
-    public List<ClientEntity> getAllClient(){
+    public List<ClientDTO> getAllClient(){
         return service.getAllClient();
     }
     @PostMapping

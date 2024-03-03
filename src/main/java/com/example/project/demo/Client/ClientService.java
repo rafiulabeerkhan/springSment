@@ -4,14 +4,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ClientService {
     @Autowired
     public ClientRepository repo;
 
-    public List<ClientEntity> getAllClient() {
-        return repo.findAll();
+    public List<ClientDTO> getAllClient() {
+List<ClientEntity> clientEntityList = repo.findAll();
+return clientEntityList.stream().map(this::fromEntityToDTO).collect(Collectors.toList());
+    }
+    public ClientDTO fromEntityToDTO(ClientEntity client){
+        return new ClientDTO(client.getClientName(),
+                client.getDesignation(),
+                client.getContactNo(),
+                client.getOfficeAddress(),
+                client.getOrderInfo(),
+                client.getQuantity());
     }
 
     public ClientEntity getClientId(Long id) {
