@@ -1,18 +1,14 @@
 package com.example.project.demo.Machine;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
-
+@Data
 @AllArgsConstructor
+@Builder
 
 public class MachineEntity {
     @Id
@@ -22,5 +18,8 @@ public class MachineEntity {
     private String status;
     private String pmProduction;
     private Long employee_id;
+    @Lob
+    @Column(name = "imagedata",length = 1000)
+    private byte[] imageData;
 
 }

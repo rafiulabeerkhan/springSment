@@ -16,7 +16,7 @@ public class MachineController {
 
     @GetMapping("/getAll")
     public List<MachineEntity> getAllMachine(){
-        return service.getAllMachine();
+        return service.getAllMaterial();
     }
     @PostMapping
     public MachineEntity addMachine( @RequestBody MachineEntity machine ){
