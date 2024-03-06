@@ -1,7 +1,10 @@
 package com.example.project.demo.Machine;
 
+import com.example.project.demo.entity.Employees;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Getter
@@ -21,5 +24,8 @@ public class MachineEntity {
     @Lob
     @Column(name = "imagedata",length = 1000)
     private byte[] imageData;
+
+    @OneToMany(mappedBy = "machineEntity")
+    private Set<Employees> employees;
 
 }

@@ -16,5 +16,6 @@ public class MaterialEntity {
     private Long material_id;
     private String name;
     private String country;
-    private Long price;
+    private String quantity;
+    private Long payment;
 }

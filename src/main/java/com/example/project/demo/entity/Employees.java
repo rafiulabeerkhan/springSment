@@ -1,9 +1,7 @@
 package com.example.project.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.project.demo.Machine.MachineEntity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,4 +25,8 @@ public class Employees {
     private String shift;
     private Long workingHour;
     private String joiningDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "machine_entity_id")
+    private MachineEntity machineEntity;
 }
