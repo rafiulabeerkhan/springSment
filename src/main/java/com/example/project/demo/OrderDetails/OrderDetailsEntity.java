@@ -1,11 +1,10 @@
 package com.example.project.demo.OrderDetails;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.project.demo.Order.OrderEntity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
@@ -13,17 +12,17 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-
-@AllArgsConstructor
-
 public class OrderDetailsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long details_id;
+    private Long id;
     private Long product_id;
     private Integer quantity;
     private Integer price;
     private Integer totalPrice;
     private Date deliveryDate;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_entity_id" )
+    private OrderEntity orderEntity;
 }

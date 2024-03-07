@@ -1,5 +1,6 @@
 package com.example.project.demo.Order;
 
+import com.example.project.demo.OrderDetails.OrderDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,8 @@ import java.util.List;
 public class OrderService {
     @Autowired
     public OrderRepository repo;
-
+    @Autowired
+    public OrderDetailsRepository orderDetailsRepositorypo;
     public List<OrderEntity> getAllOrder() {
         return repo.findAll();
     }
@@ -19,7 +21,16 @@ public class OrderService {
     }
 
     public OrderEntity saveOrder(OrderEntity order) {
-        return this.repo.save(order);
+
+        OrderEntity orderEntity = new OrderEntity();
+        orderEntity.setId(repo.save(order).getId()); ;
+
+        order.getOrderDetailsEntity().forEach(orderDetails -> {
+            orderDetails.setOrderEntity(orderEntity);
+            orderDetailsRepositorypo.save(orderDetails);
+        });
+
+        return orderEntity;
     }
 
     public Boolean deleteOrder(Long id) {
