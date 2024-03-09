@@ -22,15 +22,15 @@ public class OrderService {
 
     public OrderEntity saveOrder(OrderEntity order) {
 
-        OrderEntity orderEntity = new OrderEntity();
-        orderEntity.setId(repo.save(order).getId()); ;
+//        OrderEntity orderEntity = new OrderEntity();
+//        orderEntity.setId(repo.save(order).getId()); ;
+//
+//        order.getOrderDetailsEntity().forEach(orderDetails -> {
+//            orderDetails.setOrderEntity(orderEntity);
+//            orderDetailsRepositorypo.save(orderDetails);
+//        });
 
-        order.getOrderDetailsEntity().forEach(orderDetails -> {
-            orderDetails.setOrderEntity(orderEntity);
-            orderDetailsRepositorypo.save(orderDetails);
-        });
-
-        return orderEntity;
+        return repo.save(order);
     }
 
     public Boolean deleteOrder(Long id) {

@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClientDTO {
+    private Long clientId;
     private String clientName;
     private String designation;
     private String contactNo;

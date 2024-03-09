@@ -1,10 +1,14 @@
 package com.example.project.demo.Client;
 
+import com.example.project.demo.Order.OrderEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,4 +29,7 @@ public class ClientEntity {
     private Long product_id;
     private Integer quantity;
 
+ @OneToMany(mappedBy = "clientEntity")
+ @JsonIgnore
+ private List<OrderEntity> orderEntities;
 }

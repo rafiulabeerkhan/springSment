@@ -25,4 +25,6 @@ public class OrderDetailsEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_entity_id" )
     private OrderEntity orderEntity;
+
+
 }

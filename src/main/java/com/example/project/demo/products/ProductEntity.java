@@ -1,14 +1,18 @@
 package com.example.project.demo.products;
 
+import com.example.project.demo.Order.OrderEntity;
+import com.example.project.demo.OrderDetails.OrderDetailsEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,4 +22,8 @@ public class ProductEntity {
     private String material_name;
     private String workOrder;
     private Integer weight;
+
+    @OneToMany(mappedBy = "productEntity")
+    @JsonIgnore
+    private List<OrderEntity> orderEntities;
 }

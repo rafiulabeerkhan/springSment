@@ -16,7 +16,7 @@ List<ClientEntity> clientEntityList = repo.findAll();
 return clientEntityList.stream().map(this::fromEntityToDTO).collect(Collectors.toList());
     }
     public ClientDTO fromEntityToDTO(ClientEntity client){
-        return new ClientDTO(client.getClientName(),
+        return new ClientDTO(client.getClientId(),client.getClientName(),
                 client.getDesignation(),
                 client.getContactNo(),
                 client.getOfficeAddress(),
