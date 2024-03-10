@@ -12,6 +12,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @Builder
+@NoArgsConstructor
 
 public class MachineEntity {
     @Id
