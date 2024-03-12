@@ -19,9 +19,10 @@ public class ProductionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long production_id;
-    private Long product_id;
+    private Long id;
     private Long material_id;
     private Long employee_id;
+    private Long machine_id;
     private String status;
 
 

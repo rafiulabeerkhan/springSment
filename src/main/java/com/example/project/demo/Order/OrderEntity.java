@@ -24,7 +24,7 @@ public class OrderEntity {
     private Integer price;
     private Integer totalPrice;
     private Integer due;
-    private Long client_id;
+//    private Long client_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_entity_id" )
