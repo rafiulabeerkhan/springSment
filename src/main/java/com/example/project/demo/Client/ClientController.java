@@ -13,6 +13,10 @@ public class ClientController {
     @Autowired
     public ClientService service;
 
+    @GetMapping("/count")
+    public Long countClient(){
+        return service.countClient();
+    }
     @GetMapping("/getAll")
     public List<ClientDTO> getAllClient(){
         return service.getAllClient();

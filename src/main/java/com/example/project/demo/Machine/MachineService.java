@@ -41,4 +41,7 @@ public class MachineService {
         return false;
     }
 
+    public Long countMachine() {
+        return repo.count();
+    }
 }

@@ -32,4 +32,7 @@ public class EmployeesService {
         return false;
     }
 
+    public Long countEmployees() {
+        return repo.count();
+    }
 }

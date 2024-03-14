@@ -40,4 +40,7 @@ return clientEntityList.stream().map(this::fromEntityToDTO).collect(Collectors.t
         return false;
     }
 
+    public Long countClient() {
+        return repo.count();
+    }
 }

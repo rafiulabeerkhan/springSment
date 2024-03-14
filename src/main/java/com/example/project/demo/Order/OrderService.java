@@ -41,4 +41,7 @@ public class OrderService {
         return false;
     }
 
+    public Long countOrder() {
+        return repo.count();
+    }
 }

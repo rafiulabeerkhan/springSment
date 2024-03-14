@@ -22,12 +22,10 @@ public class ProductService {
         return this.repo.save(product);
     }
 
-    public Boolean deleteProduct(Long id) {
+    public void deleteProduct(Long id) {
         if (repo.findById(id).isPresent()) {
             repo.deleteById(id);
-            return true;
         }
-        return false;
     }
 
 }

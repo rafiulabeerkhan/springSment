@@ -12,12 +12,18 @@ public class OrderController {
     @Autowired
     public OrderService service;
 
+    @GetMapping("/count")
+    public Long countOrder(){
+        return service.countOrder();
+    }
+
     @GetMapping("/getAll")
     public List<OrderEntity> getAllOrder(){
         return service.getAllOrder();
     }
     @PostMapping
     public OrderEntity addOrder( @RequestBody OrderEntity order ){
+        System.out.println(order);
         return service.saveOrder(order);
     }
 

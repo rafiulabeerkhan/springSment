@@ -14,6 +14,12 @@ public class MachineController {
     @Autowired
     public MachineService service;
 
+    @GetMapping("/count")
+    public Long countMachine(){
+        return service.countMachine();
+    }
+
+
     @GetMapping("/getAll")
     public List<MachineEntity> getAllMachine(){
         return service.getAllMaterial();

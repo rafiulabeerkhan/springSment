@@ -29,6 +29,11 @@ public class EmployeesController {
     @Autowired
     public EmployeeRepository repository;
 
+    @GetMapping("/count")
+    public Long countEmployees(){
+        return service.countEmployees();
+    }
+
     @GetMapping(value = "/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<byte[]> downloadInvoice() throws JRException, IOException {
 
