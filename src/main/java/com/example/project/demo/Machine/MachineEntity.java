@@ -20,8 +20,8 @@ public class MachineEntity {
     private Long machine_id;
     private String country;
     private String status;
-    private String pmProduction;
-    private Long employee_id;
+    private Long pmProduction;
+    private String employeeID;
     @Lob
     @Column(name = "imagedata",length = 1000)
     private byte[] imageData;

@@ -3,6 +3,7 @@ package com.example.project.demo.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,20 @@ public class OrderController {
 
     @GetMapping("/getAll")
     public List<OrderEntity> getAllOrder(){
-        return service.getAllOrder();
+        List<OrderEntity> orderEntities = new ArrayList<>();
+        orderEntities = service.getAllOrder();
+        for (int i = 0; i < orderEntities.size(); i++) {
+            if(orderEntities.get(i).getClientEntity()!=null){
+                orderEntities.get(i).getClientEntity().setOrderEntities(null);
+            }
+
+            if(orderEntities.get(i).getProductEntity()!=null){
+                orderEntities.get(i).getProductEntity().setOrderEntities(null);
+            }
+
+        }
+
+        return orderEntities;
     }
     @PostMapping
     public OrderEntity addOrder( @RequestBody OrderEntity order ){

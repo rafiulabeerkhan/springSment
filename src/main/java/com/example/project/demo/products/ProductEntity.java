@@ -1,10 +1,8 @@
 package com.example.project.demo.products;
 
 import com.example.project.demo.Order.OrderEntity;
-import com.example.project.demo.OrderDetails.OrderDetailsEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

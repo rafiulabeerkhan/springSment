@@ -13,6 +13,13 @@ public class OrderService {
     @Autowired
     public OrderDetailsRepository orderDetailsRepositorypo;
     public List<OrderEntity> getAllOrder() {
+
+        List<OrderEntity> orderEntities = repo.findAll();
+        orderEntities.forEach(orderEntity -> {
+            orderEntity.setClientEntity(null);
+            orderEntity.setProductEntity(null);
+        });
+
         return repo.findAll();
     }
 
